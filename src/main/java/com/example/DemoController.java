@@ -5,6 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 	@RequestMapping("/")
     public String greet() {
-     return "Olha o STF-Programando com Spring boot no GAE!";
+     return "Olha o STF-Programando com Spring boot no Heroku com Docker pq no GAE comecou a cobrar!";
     }
 }
