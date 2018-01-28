@@ -2,15 +2,17 @@ package com.example;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.bean.Lancamento;
 import com.example.repository.LancamentoRepository;
 
 @RestController
+@CrossOrigin(origins="*")
 public class DemoController {
 	
 	@Autowired
@@ -22,17 +24,6 @@ public class DemoController {
     }
 	
 	@RequestMapping("/lancamento")
-	public Lancamento lancamento() {
-		Lancamento lancamento = new Lancamento();
-		lancamento.setDia(10);
-		lancamento.setMes(07);
-		lancamento.setAno(2017);
-		lancamento.setDescricao("Aluguel");
-		lancamento.setValor(200.00);
-		return lancamento;
-	}
-	
-	@RequestMapping("/lancamento/lst")
 	public List<Lancamento> lancamentos() {
 		return lancamentoRepository.findAll();
 	}
